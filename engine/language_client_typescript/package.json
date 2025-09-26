@@ -39,7 +39,15 @@
     "./logging.d.ts",
     "./logging.js",
     "./browser.d.ts",
-    "./browser.js"
+    "./browser.js",
+    "./image.d.ts",
+    "./image.js",
+    "./audio.d.ts",
+    "./audio.js",
+    "./pdf.d.ts",
+    "./pdf.js",
+    "./video.d.ts",
+    "./video.js"
   ],
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -49,7 +57,11 @@
     "./type_builder": "./type_builder.js",
     "./errors": "./errors.js",
     "./browser": "./browser.js",
-    "./logging": "./logging.js"
+    "./logging": "./logging.js",
+    "./image": "./image.js",
+    "./audio": "./audio.js",
+    "./pdf": "./pdf.js",
+    "./video": "./video.js"
   },
   "napi": {
     "binaryName": "baml",

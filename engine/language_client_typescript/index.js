@@ -18,30 +18,6 @@ exports.BamlCtxManager = exports.BamlStream = exports.TraceStats = exports.Timin
 __exportStar(require("./safe_imports"), exports);
 __exportStar(require("./errors"), exports);
 __exportStar(require("./logging"), exports);
-// Detect if we're in a Node.js environment
-const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
-if (!isNode) {
-    const browserError = (name) => {
-        throw new Error(`Cannot import ${name} from '@boundaryml/baml' in browser environment. Please import from '@boundaryml/baml/browser' instead.`);
-    };
-    // Provide helpful error messages for browser imports
-    Object.defineProperty(exports, 'Image', {
-        get: () => browserError('Image'),
-        enumerable: true,
-    });
-    Object.defineProperty(exports, 'Audio', {
-        get: () => browserError('Audio'),
-        enumerable: true,
-    });
-    Object.defineProperty(exports, 'Pdf', {
-        get: () => browserError('Pdf'),
-        enumerable: true,
-    });
-    Object.defineProperty(exports, 'Video', {
-        get: () => browserError('Video'),
-        enumerable: true,
-    });
-}
 var native_1 = require("./native");
 Object.defineProperty(exports, "BamlRuntime", { enumerable: true, get: function () { return native_1.BamlRuntime; } });
 Object.defineProperty(exports, "FunctionResult", { enumerable: true, get: function () { return native_1.FunctionResult; } });
