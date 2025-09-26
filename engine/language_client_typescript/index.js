@@ -10,14 +10,64 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BamlCtxManager = exports.BamlStream = exports.TraceStats = exports.Timing = exports.StreamTiming = exports.SSEResponse = exports.HTTPResponse = exports.HTTPRequest = exports.Usage = exports.LlmStreamCall = exports.LlmCall = exports.FunctionLog = exports.Collector = exports.BamlLogEvent = exports.ClientRegistry = exports.invoke_runtime_cli = exports.Video = exports.Pdf = exports.Audio = exports.Image = exports.FunctionResultStream = exports.FunctionResult = exports.BamlRuntime = void 0;
 __exportStar(require("./safe_imports"), exports);
 __exportStar(require("./errors"), exports);
 __exportStar(require("./logging"), exports);
+// Import native implementations
+const native = __importStar(require("../native"));
+// Export native implementations for Node.js environment
+exports.BamlRuntime = native.BamlRuntime;
+exports.FunctionResult = native.FunctionResult;
+exports.FunctionResultStream = native.FunctionResultStream;
+exports.Image = native.BamlImage;
+exports.Audio = native.BamlAudio;
+exports.Pdf = native.BamlPdf;
+exports.Video = native.BamlVideo;
+exports.invoke_runtime_cli = native.invoke_runtime_cli;
+exports.ClientRegistry = native.ClientRegistry;
+exports.BamlLogEvent = native.BamlLogEvent;
+exports.Collector = native.Collector;
+exports.FunctionLog = native.FunctionLog;
+exports.LlmCall = native.LlmCall;
+exports.LlmStreamCall = native.LlmStreamCall;
+exports.Usage = native.Usage;
+exports.HTTPRequest = native.HTTPRequest;
+exports.HTTPResponse = native.HTTPResponse;
+exports.SSEResponse = native.SSEResponse;
+exports.StreamTiming = native.StreamTiming;
+exports.Timing = native.Timing;
+exports.TraceStats = native.TraceStats;
+var stream_1 = require("./stream");
+Object.defineProperty(exports, "BamlStream", { enumerable: true, get: function () { return stream_1.BamlStream; } });
+var async_context_vars_1 = require("./async_context_vars");
+Object.defineProperty(exports, "BamlCtxManager", { enumerable: true, get: function () { return async_context_vars_1.BamlCtxManager; } });
 // Detect if we're in a Node.js environment
 const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
 if (!isNode) {
@@ -42,29 +92,3 @@ if (!isNode) {
         enumerable: true,
     });
 }
-var native_1 = require("./native");
-Object.defineProperty(exports, "BamlRuntime", { enumerable: true, get: function () { return native_1.BamlRuntime; } });
-Object.defineProperty(exports, "FunctionResult", { enumerable: true, get: function () { return native_1.FunctionResult; } });
-Object.defineProperty(exports, "FunctionResultStream", { enumerable: true, get: function () { return native_1.FunctionResultStream; } });
-Object.defineProperty(exports, "Image", { enumerable: true, get: function () { return native_1.BamlImage; } });
-Object.defineProperty(exports, "Audio", { enumerable: true, get: function () { return native_1.BamlAudio; } });
-Object.defineProperty(exports, "Pdf", { enumerable: true, get: function () { return native_1.BamlPdf; } });
-Object.defineProperty(exports, "Video", { enumerable: true, get: function () { return native_1.BamlVideo; } });
-Object.defineProperty(exports, "invoke_runtime_cli", { enumerable: true, get: function () { return native_1.invoke_runtime_cli; } });
-Object.defineProperty(exports, "ClientRegistry", { enumerable: true, get: function () { return native_1.ClientRegistry; } });
-Object.defineProperty(exports, "BamlLogEvent", { enumerable: true, get: function () { return native_1.BamlLogEvent; } });
-Object.defineProperty(exports, "Collector", { enumerable: true, get: function () { return native_1.Collector; } });
-Object.defineProperty(exports, "FunctionLog", { enumerable: true, get: function () { return native_1.FunctionLog; } });
-Object.defineProperty(exports, "LlmCall", { enumerable: true, get: function () { return native_1.LlmCall; } });
-Object.defineProperty(exports, "LlmStreamCall", { enumerable: true, get: function () { return native_1.LlmStreamCall; } });
-Object.defineProperty(exports, "Usage", { enumerable: true, get: function () { return native_1.Usage; } });
-Object.defineProperty(exports, "HTTPRequest", { enumerable: true, get: function () { return native_1.HTTPRequest; } });
-Object.defineProperty(exports, "HTTPResponse", { enumerable: true, get: function () { return native_1.HTTPResponse; } });
-Object.defineProperty(exports, "SSEResponse", { enumerable: true, get: function () { return native_1.SSEResponse; } });
-Object.defineProperty(exports, "StreamTiming", { enumerable: true, get: function () { return native_1.StreamTiming; } });
-Object.defineProperty(exports, "Timing", { enumerable: true, get: function () { return native_1.Timing; } });
-Object.defineProperty(exports, "TraceStats", { enumerable: true, get: function () { return native_1.TraceStats; } });
-var stream_1 = require("./stream");
-Object.defineProperty(exports, "BamlStream", { enumerable: true, get: function () { return stream_1.BamlStream; } });
-var async_context_vars_1 = require("./async_context_vars");
-Object.defineProperty(exports, "BamlCtxManager", { enumerable: true, get: function () { return async_context_vars_1.BamlCtxManager; } });
